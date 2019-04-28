@@ -87,11 +87,12 @@
             android:textSize="20sp" />
 
         <Spinner
-            android:id="@+id/storeSpinner"
+            android:id="@+id/menuSpinner"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:background="#FFEB3B"></Spinner>
+            android:background="#FFEB3B"
+            android:entries="@array/pizza_menu"></Spinner>
 
     </LinearLayout>
 

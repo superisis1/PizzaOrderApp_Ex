@@ -36,7 +36,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/timeTxt"
+                android:id="@+id/openTimeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15:00 ~ 21:00"
@@ -45,7 +45,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/inBtn"
+            android:id="@+id/selectBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
