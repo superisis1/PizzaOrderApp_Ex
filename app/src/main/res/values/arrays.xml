@@ -3,9 +3,6 @@
 
     <string-array name="pizza_menu">
         <item>피자메뉴</item>
-        <item>피자메뉴</item>
-        <item>피자메뉴</item>
-
     </string-array>
 
 </resources>

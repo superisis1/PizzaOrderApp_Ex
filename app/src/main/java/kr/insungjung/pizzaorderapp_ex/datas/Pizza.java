@@ -7,6 +7,5 @@ public class Pizza {
 
     public Pizza(String pizzaName) {
         this.pizzaName = pizzaName;
-
     }
 }

@@ -19,9 +19,7 @@ import kr.insungjung.pizzaorderapp_ex.datas.Store;
 public class MainActivity extends BaseActivity {
 
     ActivityMainBinding act;
-
     List<Store> pizzaStores = new ArrayList<>();
-
     StoreAdapter mStoreAdapter;
 
     @Override

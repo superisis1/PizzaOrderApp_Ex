@@ -9,8 +9,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -21,12 +24,15 @@ import java.util.List;
 import kr.insungjung.pizzaorderapp_ex.adapter.PizzaAdapter;
 import kr.insungjung.pizzaorderapp_ex.databinding.ActivityStoreDetailBinding;
 import kr.insungjung.pizzaorderapp_ex.datas.Pizza;
+import kr.insungjung.pizzaorderapp_ex.datas.Store;
 
 public class StoreDetailActivity extends BaseActivity {
 
     PizzaAdapter pizzaAdapter;
 
     List<Pizza> pizza = new ArrayList<>();
+
+    Store mStore;
 
     ActivityStoreDetailBinding act;
 
@@ -40,6 +46,19 @@ public class StoreDetailActivity extends BaseActivity {
 
         fillPizzas();
 
+        ImageView logoImg = findViewById(R.id.logoCircleImg);
+        TextView nameTxt = findViewById(R.id.storeNameTxt);
+        // TextView openTimeTxt = findViewById(R.id.openTimeTxt);
+        TextView phoneNumTxt = findViewById(R.id.phoneNumTxt);
+
+        mStore = (Store) getIntent().getSerializableExtra("가게정보");
+
+        Glide.with(mContext).load(mStore.logoUrl).into(logoImg);
+        nameTxt.setText(mStore.name);
+        // openTimeTxt.setText(mStore.openTime);
+        phoneNumTxt.setText(mStore.phoneNum);
+
+
         pizzaAdapter = new PizzaAdapter(mContext, pizza);
         act.menuSpinner.setAdapter(pizzaAdapter);
 
@@ -47,7 +66,7 @@ public class StoreDetailActivity extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(mContext, String.format("%s를 선택하셨습니다.", pizza.get(position).pizzaName), Toast.LENGTH_SHORT).show();
+                // Toast.makeText(mContext, String.format("%s를 선택하셨습니다.", pizza.get(position).pizzaName), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -101,10 +120,8 @@ public class StoreDetailActivity extends BaseActivity {
                         .setDeniedMessage("전화권한을 거부하면 통화가 불가합니다. [설정]에서 활성화 해주세요.")
                         .setPermissions(Manifest.permission.CALL_PHONE)
                         .check();
-
             }
         });
-
 
     }
 
