@@ -4,16 +4,15 @@ import java.io.Serializable;
 
 public class Store implements Serializable {
 
-    public String storeNameTxt;
-    public String openTimeTxt;
-    public String phoneNumTxt;
-    public String menuTxt;
+    public String name;
+    public String openTime;
+    public String phoneNum;
+    public String logoUrl;
 
-    public Store(String storeNameTxt, String openTimeTxt, String phoneNumTxt, String menuTxt) {
-        this.storeNameTxt = storeNameTxt;
-        this.openTimeTxt = openTimeTxt;
-        this.phoneNumTxt = phoneNumTxt;
-        this.menuTxt = menuTxt;
-
+    public Store(String name, String openTime, String phoneNum, String logoUrl) {
+        this.name = name;
+        this.openTime = openTime;
+        this.phoneNum = phoneNum;
+        this.logoUrl = logoUrl;
     }
 }
