@@ -46,19 +46,6 @@ public class StoreDetailActivity extends BaseActivity {
 
         fillPizzas();
 
-        ImageView logoImg = findViewById(R.id.logoCircleImg);
-        TextView nameTxt = findViewById(R.id.storeNameTxt);
-        // TextView openTimeTxt = findViewById(R.id.openTimeTxt);
-        TextView phoneNumTxt = findViewById(R.id.phoneNumTxt);
-
-        mStore = (Store) getIntent().getSerializableExtra("가게정보");
-
-        Glide.with(mContext).load(mStore.logoUrl).into(logoImg);
-        nameTxt.setText(mStore.name);
-        // openTimeTxt.setText(mStore.openTime);
-        phoneNumTxt.setText(mStore.phoneNum);
-
-
         pizzaAdapter = new PizzaAdapter(mContext, pizza);
         act.menuSpinner.setAdapter(pizzaAdapter);
 
@@ -127,6 +114,20 @@ public class StoreDetailActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+
+        ImageView logoImg = findViewById(R.id.logoCircleImg);
+        TextView nameTxt = findViewById(R.id.storeNameTxt);
+        // TextView openTimeTxt = findViewById(R.id.openTimeTxt);
+        TextView phoneNumTxt = findViewById(R.id.phoneNumTxt);
+
+        mStore = (Store) getIntent().getSerializableExtra("가게정보");
+
+        setTitle(String.format("%s 상세정보", mStore.name));
+        Glide.with(mContext).load(mStore.logoUrl).into(logoImg);
+        nameTxt.setText(mStore.name);
+        // openTimeTxt.setText(mStore.openTime);
+        phoneNumTxt.setText(mStore.phoneNum);
+
 
     }
 

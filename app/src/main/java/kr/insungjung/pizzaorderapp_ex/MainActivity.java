@@ -29,9 +29,6 @@ public class MainActivity extends BaseActivity {
         setupEvents();
         setValues();
 
-        mStoreAdapter = new StoreAdapter(mContext, pizzaStores);
-        act.storeListView.setAdapter(mStoreAdapter);
-
         String selectedPizza = getIntent().getStringExtra("선택한피자");
         Toast.makeText(mContext, String.format("%s 를 선택하셨습니다!", selectedPizza), Toast.LENGTH_SHORT).show();
 
