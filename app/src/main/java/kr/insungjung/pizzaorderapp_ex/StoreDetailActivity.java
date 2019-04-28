@@ -6,18 +6,27 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import kr.insungjung.pizzaorderapp_ex.adapter.PizzaAdapter;
 import kr.insungjung.pizzaorderapp_ex.databinding.ActivityStoreDetailBinding;
+import kr.insungjung.pizzaorderapp_ex.datas.Pizza;
 
 public class StoreDetailActivity extends BaseActivity {
+
+    PizzaAdapter pizzaAdapter;
+
+    List<Pizza> pizza = new ArrayList<>();
 
     ActivityStoreDetailBinding act;
 
@@ -29,6 +38,31 @@ public class StoreDetailActivity extends BaseActivity {
         setupEvents();
         setValues();
 
+        fillPizzas();
+
+        pizzaAdapter = new PizzaAdapter(mContext, pizza);
+        act.menuSpinner.setAdapter(pizzaAdapter);
+
+        /* 스피너 아이템 */
+        final MaterialSpinner spinner = findViewById(R.id.menuSpinner);
+        spinner.setItems("페페로니 피자", "치즈 피자", "버섯 피자", "시금치 피자", "베이컨 체다치즈 피자");
+        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+               /* Object menuItem = adapterView.getItemAtPosition(position);
+                if (menuItem != null) {
+                    Toast.makeText(mContext, item.toString(),
+                            Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(mContext, "Selected",
+                        Toast.LENGTH_SHORT).show();*/
+            }
+
+           /* @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // TODO Auto-generated method stub
+            }*/
+        });
 
     }
 
@@ -63,16 +97,6 @@ public class StoreDetailActivity extends BaseActivity {
             }
         });
 
-        /* 스피너 클릭 */
-        MaterialSpinner spinner = findViewById(R.id.menuSpinner);
-        spinner.setItems("페페로니 피자", "치즈 피자", "버섯 피자", "시금치 피자", "베이컨 체다치즈 피자");
-        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
-
-            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-                Toast.makeText(StoreDetailActivity.this, "스피너 클릭", Toast.LENGTH_SHORT).show();
-            }
-        });
-
 
     }
 
@@ -85,4 +109,15 @@ public class StoreDetailActivity extends BaseActivity {
     public void bindViews() {
         act = DataBindingUtil.setContentView(this, R.layout.activity_store_detail);
     }
+
+    void fillPizzas() {
+        pizza.add(new Pizza("페페로니"));
+        pizza.add(new Pizza("치즈피자"));
+        pizza.add(new Pizza("하와이안"));
+        pizza.add(new Pizza("버섯피자"));
+        pizza.add(new Pizza("시금치피자"));
+        pizza.add(new Pizza("베이컨체다치즈 피자"));
+        pizza.add(new Pizza("슈퍼슈프림"));
+    }
+
 }

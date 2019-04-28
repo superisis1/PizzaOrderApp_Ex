@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="live_location">
+        <item>피자메뉴</item>
+        <item>피자메뉴</item>
+        <item>피자메뉴</item>
+
+    </string-array>
+
+</resources>
