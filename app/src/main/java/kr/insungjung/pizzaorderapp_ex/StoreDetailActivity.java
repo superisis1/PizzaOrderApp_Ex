@@ -43,25 +43,33 @@ public class StoreDetailActivity extends BaseActivity {
         pizzaAdapter = new PizzaAdapter(mContext, pizza);
         act.menuSpinner.setAdapter(pizzaAdapter);
 
-        /* 스피너 아이템 */
-        final MaterialSpinner spinner = findViewById(R.id.menuSpinner);
-        spinner.setItems("페페로니 피자", "치즈 피자", "버섯 피자", "시금치 피자", "베이컨 체다치즈 피자");
-        spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+        act.menuSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
-               /* Object menuItem = adapterView.getItemAtPosition(position);
-                if (menuItem != null) {
-                    Toast.makeText(mContext, item.toString(),
-                            Toast.LENGTH_SHORT).show();
-                }
-                Toast.makeText(mContext, "Selected",
-                        Toast.LENGTH_SHORT).show();*/
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Toast.makeText(mContext, String.format("%s를 선택하셨습니다.", pizza.get(position).pizzaName), Toast.LENGTH_SHORT).show();
             }
 
-           /* @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // TODO Auto-generated method stub
-            }*/
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        act.okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int selectedPosition = act.menuSpinner.getSelectedItemPosition();
+
+                String selectedPizzaName = pizza.get(selectedPosition).pizzaName;
+
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra("선택한피자", selectedPizzaName);
+                startActivity(intent);
+                finish();
+
+            }
         });
 
     }

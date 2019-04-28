@@ -87,11 +87,11 @@
             android:text="메뉴 선택"
             android:textSize="20sp" />
 
-        <com.jaredrummler.materialspinner.MaterialSpinner
+        <Spinner
             android:id="@+id/menuSpinner"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"></com.jaredrummler.materialspinner.MaterialSpinner>
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"></Spinner>
 
     </LinearLayout>
 
