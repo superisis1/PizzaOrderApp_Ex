@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -16,10 +17,8 @@
                 android:id="@+id/storeListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="50dp"
                 android:divider="#F1F1F1"
-                android:dividerHeight="6dp">
-            </ListView>
+                android:dividerHeight="2dp"></ListView>
 
         </LinearLayout>
 
