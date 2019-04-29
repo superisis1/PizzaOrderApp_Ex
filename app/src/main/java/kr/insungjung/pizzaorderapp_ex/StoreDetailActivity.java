@@ -44,39 +44,8 @@ public class StoreDetailActivity extends BaseActivity {
         setupEvents();
         setValues();
 
-        fillPizzas();
 
-        pizzaAdapter = new PizzaAdapter(mContext, pizza);
-        act.menuSpinner.setAdapter(pizzaAdapter);
 
-        act.menuSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                // Toast.makeText(mContext, String.format("%s를 선택하셨습니다.", pizza.get(position).pizzaName), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        act.okBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                int selectedPosition = act.menuSpinner.getSelectedItemPosition();
-
-                String selectedPizzaName = pizza.get(selectedPosition).pizzaName;
-
-                    Intent intent = new Intent(mContext, MainActivity.class);
-                    intent.putExtra("선택한피자", selectedPizzaName);
-                    intent.putExtra("실행허락", true);
-                    startActivity(intent);
-                    finish();
-            }
-        });
 
     }
 
@@ -108,6 +77,44 @@ public class StoreDetailActivity extends BaseActivity {
                         .setPermissions(Manifest.permission.CALL_PHONE)
                         .check();
             }
+        });
+
+
+        fillPizzas();
+
+        pizzaAdapter = new PizzaAdapter(mContext, pizza);
+        act.menuSpinner.setAdapter(pizzaAdapter);
+
+        /* 스피너 아이템 클릭 */
+        act.menuSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                // Toast.makeText(mContext, String.format("%s를 선택하셨습니다.", pizza.get(position).pizzaName), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        /* ok 버튼 */
+        act.okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int selectedPosition = act.menuSpinner.getSelectedItemPosition();
+
+                String selectedPizzaName = pizza.get(selectedPosition).pizzaName;
+
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra("선택한피자", selectedPizzaName);
+                intent.putExtra("실행허락", true);
+                startActivity(intent);
+                finish();
+            }
+
         });
 
     }
