@@ -136,6 +136,7 @@
                     android:orientation="horizontal">
 
                     <Spinner
+                        android:spinnerMode="dialog"
                         android:id="@+id/menuSpinner"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"></Spinner>

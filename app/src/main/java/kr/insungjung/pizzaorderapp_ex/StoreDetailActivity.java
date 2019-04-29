@@ -211,7 +211,16 @@ public class StoreDetailActivity extends BaseActivity {
         pizza.add(new Pizza("버섯피자"));
         pizza.add(new Pizza("시금치피자"));
         pizza.add(new Pizza("베이컨체다치즈 피자"));
-        pizza.add(new Pizza("슈퍼슈프림"));
+        pizza.add(new Pizza("우리고구마"));
+        pizza.add(new Pizza("콰트로 치즈 퐁듀"));
+        pizza.add(new Pizza("슈퍼디럭스"));
+        pizza.add(new Pizza("불고기"));
+        pizza.add(new Pizza("더블크러스트 이베리코"));
+        pizza.add(new Pizza("블랙앵거스 스테이크"));
+        pizza.add(new Pizza("글램핑 바베큐"));
+        pizza.add(new Pizza("블랙타이거 슈림프"));
+        pizza.add(new Pizza("와규 앤 비스테카"));
+        pizza.add(new Pizza("직화 스테이크"));
     }
 
 }
