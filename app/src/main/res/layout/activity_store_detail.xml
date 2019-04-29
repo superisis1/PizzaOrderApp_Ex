@@ -82,18 +82,36 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/callBtn"
+                <TableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:text="전화걸기" />
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/smsBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="문자보내기" />
+                    <TableRow>
+
+                        <Button
+                            android:id="@+id/callBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="2dp"
+                            android:text="전화걸기" />
+
+                        <Button
+                            android:id="@+id/smsBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="문자보내기" />
+
+                    </TableRow>
+
+                    <Button
+                        android:id="@+id/savePhoneNumBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="연락처저장" />
+
+                </TableLayout>
+
 
             </LinearLayout>
 
