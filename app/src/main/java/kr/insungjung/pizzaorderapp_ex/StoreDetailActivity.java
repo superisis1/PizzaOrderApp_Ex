@@ -70,11 +70,11 @@ public class StoreDetailActivity extends BaseActivity {
 
                 String selectedPizzaName = pizza.get(selectedPosition).pizzaName;
 
-                Intent intent = new Intent(mContext, MainActivity.class);
-                intent.putExtra("선택한피자", selectedPizzaName);
-                startActivity(intent);
-                finish();
-
+                    Intent intent = new Intent(mContext, MainActivity.class);
+                    intent.putExtra("선택한피자", selectedPizzaName);
+                    intent.putExtra("실행허락", true);
+                    startActivity(intent);
+                    finish();
             }
         });
 

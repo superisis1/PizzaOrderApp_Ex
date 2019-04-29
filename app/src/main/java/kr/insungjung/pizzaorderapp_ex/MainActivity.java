@@ -30,8 +30,10 @@ public class MainActivity extends BaseActivity {
         setValues();
 
         String selectedPizza = getIntent().getStringExtra("선택한피자");
-        Toast.makeText(mContext, String.format("%s 를 선택하셨습니다!", selectedPizza), Toast.LENGTH_SHORT).show();
-
+        Boolean isTrue = getIntent().getBooleanExtra("실행허락", false);
+        if (isTrue == true) {
+            Toast.makeText(mContext, String.format("%s 를 선택하셨습니다!", selectedPizza), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -46,6 +48,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent(MainActivity.this, StoreDetailActivity.class);
                 intent.putExtra("가게정보", clickedStoreData);
                 startActivity(intent);
+
             }
         });
 
