@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -43,9 +44,6 @@ public class StoreDetailActivity extends BaseActivity {
         bindViews();
         setupEvents();
         setValues();
-
-
-
 
     }
 
@@ -129,7 +127,12 @@ public class StoreDetailActivity extends BaseActivity {
 
         mStore = (Store) getIntent().getSerializableExtra("가게정보");
 
+        /* up 버튼 */
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        /* 타이틀 */
         setTitle(String.format("%s 상세정보", mStore.name));
+
         Glide.with(mContext).load(mStore.logoUrl).into(logoImg);
         nameTxt.setText(mStore.name);
         // openTimeTxt.setText(mStore.openTime);
