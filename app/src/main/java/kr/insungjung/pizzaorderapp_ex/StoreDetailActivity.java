@@ -77,6 +77,34 @@ public class StoreDetailActivity extends BaseActivity {
             }
         });
 
+        /* 문자보내기 */
+        act.smsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PermissionListener permissionListener = new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted() {
+                        Uri uri = Uri.parse(String.format("smsto:%s", act.phoneNumTxt.getText().toString()));
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setType("vnd.android-dir/mms-sms");
+                        intent.setData(uri);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onPermissionDenied(List<String> deniedPermissions) {
+                        Toast.makeText(mContext, "문자전송 권한이 거부되어 실패", Toast.LENGTH_SHORT).show();
+                    }
+                };
+
+                TedPermission.with(mContext)
+                        .setPermissionListener(permissionListener)
+                        .setDeniedMessage("문자전송 권한을 거부하면 문자전송이 불가합니다. [설정]에서 활성화 해주세요.")
+                        .setPermissions(Manifest.permission.SEND_SMS)
+                        .check();
+            }
+        });
+
 
         fillPizzas();
 
