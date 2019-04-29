@@ -50,6 +50,7 @@ public class StoreDetailActivity extends BaseActivity {
 
     }
 
+    /* 액션바 메뉴 */
     // 추가된 소스, ToolBar에 menu.xml을 인플레이트함
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,14 +59,14 @@ public class StoreDetailActivity extends BaseActivity {
         menuInflater.inflate(R.menu.menu, menu);
         return true;
     }
-
     // 추가된 소스, ToolBar에 추가된 항목의 select 이벤트를 처리하는 함수
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
             case R.id.topMenu1:
-                Toast.makeText(getApplicationContext(), "메뉴1", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, DrawerActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.topMenu2:
@@ -77,7 +78,8 @@ public class StoreDetailActivity extends BaseActivity {
                 return true;
 
             default:
-                Toast.makeText(getApplicationContext(), "디폴트", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "디폴트", Toast.LENGTH_SHORT).show();
+
                 return super.onOptionsItemSelected(item);
 
         }
