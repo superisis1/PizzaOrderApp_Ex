@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -101,6 +102,35 @@ public class StoreDetailActivity extends BaseActivity {
                         .setPermissionListener(permissionListener)
                         .setDeniedMessage("문자전송 권한을 거부하면 문자전송이 불가합니다. [설정]에서 활성화 해주세요.")
                         .setPermissions(Manifest.permission.SEND_SMS)
+                        .check();
+            }
+        });
+
+        /* 연락처 추가 */
+        act.savePhoneNumBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PermissionListener permissionListener = new PermissionListener() {
+                    @Override
+                    public void onPermissionGranted() {
+                        //Uri uri = Uri.parse(String.format("tel:%s", act.phoneNumTxt.getText().toString()));
+                        Intent intent = new Intent(Intent.ACTION_INSERT);
+                        intent.setType(ContactsContract.Contacts.CONTENT_TYPE);
+                        intent.putExtra(ContactsContract.Intents.Insert.NAME, act.storeNameTxt.getText().toString());
+                        intent.putExtra(ContactsContract.Intents.Insert.PHONE, act.phoneNumTxt.getText().toString());
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onPermissionDenied(List<String> deniedPermissions) {
+                        Toast.makeText(mContext, "연락처 접근 권한이 거부되어 실패", Toast.LENGTH_SHORT).show();
+                    }
+                };
+
+                TedPermission.with(mContext)
+                        .setPermissionListener(permissionListener)
+                        .setDeniedMessage("연락처 접근 권한을 거부하면 연락처 저장이 불가합니다. [설정]에서 활성화 해주세요.")
+                        .setPermissions(Manifest.permission.READ_CONTACTS)
                         .check();
             }
         });
