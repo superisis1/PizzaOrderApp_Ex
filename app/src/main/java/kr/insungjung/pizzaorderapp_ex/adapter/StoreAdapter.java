@@ -49,7 +49,7 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         Glide.with(mContext).load(storeData.logoUrl).into(logoImg);
 
         nameTxt.setText(storeData.name);
-        openTimeTxt.setText(storeData.openTime);
+        openTimeTxt.setText(String.format("영업시간 : %s",storeData.openTime));
 
 
         return row;
