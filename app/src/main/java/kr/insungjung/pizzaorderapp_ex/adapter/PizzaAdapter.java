@@ -14,9 +14,9 @@ import kr.insungjung.pizzaorderapp_ex.datas.Pizza;
 
 public class PizzaAdapter extends ArrayAdapter<Pizza> {
 
-    Context mContext;
-    List<Pizza> mList;
-    LayoutInflater inf;
+    private Context mContext;
+    private List<Pizza> mList;
+    private LayoutInflater inf;
 
     public PizzaAdapter(Context context, List<Pizza> list) {
 

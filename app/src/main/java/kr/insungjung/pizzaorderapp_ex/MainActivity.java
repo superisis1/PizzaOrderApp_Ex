@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public void setValues() {
 
-        //setTitle("피자 주문 앱");
+        setTitle("피자 주문 앱");
 
         fillPizzaStores();
 

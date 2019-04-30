@@ -8,6 +8,9 @@ import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.insungjung.pizzaorderapp_ex.adapter.PizzaAdapter;
+import kr.insungjung.pizzaorderapp_ex.adapter.PizzaCardAdapter;
 import kr.insungjung.pizzaorderapp_ex.databinding.ActivityStoreDetailBinding;
 import kr.insungjung.pizzaorderapp_ex.datas.Pizza;
 import kr.insungjung.pizzaorderapp_ex.datas.Store;
@@ -47,6 +51,15 @@ public class StoreDetailActivity extends BaseActivity {
         bindViews();
         setupEvents();
         setValues();
+
+        RecyclerView pizzaCards = findViewById(R.id.pizzaRecyclerView);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
+        pizzaCards.setLayoutManager(layoutManager);
+
+        PizzaCardAdapter pizzaCardAdapter = new PizzaCardAdapter(pizza);
+        pizzaCards.setAdapter(pizzaCardAdapter);
+
+
 
     }
 
@@ -198,7 +211,6 @@ public class StoreDetailActivity extends BaseActivity {
         // openTimeTxt.setText(mStore.openTime);
         phoneNumTxt.setText(mStore.phoneNum);
 
-
     }
 
     @Override
@@ -207,22 +219,22 @@ public class StoreDetailActivity extends BaseActivity {
     }
 
     void fillPizzas() {
-        pizza.add(new Pizza("페페로니"));
-        pizza.add(new Pizza("치즈피자"));
-        pizza.add(new Pizza("하와이안"));
-        pizza.add(new Pizza("버섯피자"));
-        pizza.add(new Pizza("시금치피자"));
-        pizza.add(new Pizza("베이컨체다치즈 피자"));
-        pizza.add(new Pizza("우리고구마"));
-        pizza.add(new Pizza("콰트로 치즈 퐁듀"));
-        pizza.add(new Pizza("슈퍼디럭스"));
-        pizza.add(new Pizza("불고기"));
-        pizza.add(new Pizza("더블크러스트 이베리코"));
-        pizza.add(new Pizza("블랙앵거스 스테이크"));
-        pizza.add(new Pizza("글램핑 바베큐"));
-        pizza.add(new Pizza("블랙타이거 슈림프"));
-        pizza.add(new Pizza("와규 앤 비스테카"));
-        pizza.add(new Pizza("직화 스테이크"));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","페페로니", 20000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","치즈피자", 18000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","하와이안", 24000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","버섯피자", 20000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","시금치피자", 24000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","베이컨체다치즈 피자", 34000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","우리고구마", 20000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","콰트로 치즈 퐁듀", 26000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","슈퍼디럭스", 22000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","불고기", 22000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","더블크러스트 이베리코", 36000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","블랙앵거스 스테이크", 32000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","글램핑 바베큐", 28000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","블랙타이거 슈림프", 36000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","와규 앤 비스테카", 34000));
+        pizza.add(new Pizza("https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/Pizza_Hut_logo.svg/220px-Pizza_Hut_logo.svg.png","직화 스테이크", 29000));
     }
 
 }
