@@ -2,8 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/topMenu1"
+        android:title="항목1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topMenu2"
+        android:title="항목2"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topMenu3"
+        android:title="항목3"
         app:showAsAction="never" />
 </menu>
