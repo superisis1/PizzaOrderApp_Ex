@@ -78,17 +78,21 @@ public class DrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
+        if (id == R.id.coupons) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.shopping_cart) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.order_history) {
 
-        } else if (id == R.id.nav_tools) {
+        } else if (id == R.id.like_store) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.notice_menu) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.events) {
+
+        } else if (id == R.id.service_center) {
+
+        } else if (id == R.id.personal_info) {
 
         }
 

@@ -4,34 +4,42 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+<!--
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="쿠폰함" />
+-->
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/coupons"
+            android:title="쿠폰함" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/shopping_cart"
+            android:title="장바구니" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/order_history"
+            android:title="주문내역" />
+        <item
+            android:id="@+id/like_store"
+            android:title="찜한가게" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="추가정보">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+                android:id="@+id/notice_menu"
+                android:title="공지사항" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
+                android:id="@+id/events"
+                android:title="이벤트" />
+            <item
+                android:id="@+id/service_center"
+                android:title="고객안심센터" />
+
+            <item
+                android:id="@+id/personal_info"
+                android:title="개인정보" />
+
         </menu>
     </item>
 
