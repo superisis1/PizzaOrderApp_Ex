@@ -11,15 +11,19 @@
             android:title="쿠폰함" />
 -->
         <item
+            android:icon="@drawable/ic_coupon"
             android:id="@+id/coupons"
             android:title="쿠폰함" />
         <item
+            android:icon="@drawable/ic_local_mall"
             android:id="@+id/shopping_cart"
             android:title="장바구니" />
         <item
+            android:icon="@drawable/ic_local_pizza_black_24dp"
             android:id="@+id/order_history"
             android:title="주문내역" />
         <item
+            android:icon="@drawable/ic_favorite_black_24dp"
             android:id="@+id/like_store"
             android:title="찜한가게" />
     </group>
