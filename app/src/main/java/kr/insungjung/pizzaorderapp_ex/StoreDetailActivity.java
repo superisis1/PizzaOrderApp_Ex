@@ -56,6 +56,7 @@ public class StoreDetailActivity extends BaseActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         pizzaCards.setLayoutManager(layoutManager);
 
+        // https://stackoverflow.com/questions/22813484/java-error-actual-and-formal-argument-lists-differ-in-length
         PizzaCardAdapter pizzaCardAdapter = new PizzaCardAdapter(pizza, mContext);
         pizzaCards.setAdapter(pizzaCardAdapter);
 
