@@ -1,5 +1,6 @@
 package kr.insungjung.pizzaorderapp_ex.adapter;
 
+import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,16 +14,18 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import kr.insungjung.pizzaorderapp_ex.R;
-import kr.insungjung.pizzaorderapp_ex.StoreDetailActivity;
 import kr.insungjung.pizzaorderapp_ex.datas.Pizza;
 
 public class PizzaCardAdapter extends RecyclerView.Adapter<PizzaCardAdapter.ViewHolder> {
 
 
     private final List<Pizza> mList;
+    private Context mContext;
 
-    public PizzaCardAdapter(List<Pizza> list) {
+    public PizzaCardAdapter(List<Pizza> list, Context context) {
+
         mList = list;
+        mContext = context;
     }
 
     @Override
@@ -35,7 +38,10 @@ public class PizzaCardAdapter extends RecyclerView.Adapter<PizzaCardAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         Pizza pizza = mList.get(position);
 
-        holder.pizzaImg.setImageURI(Uri.parse(pizza.getPizzaImgUrl()));
+        Uri uri = Uri.parse(pizza.getPizzaImgUrl());
+        Glide.with(mContext).load(uri).into(holder.pizzaImg);
+
+        //holder.pizzaImg.setImageURI(Uri.parse(pizza.getPizzaImgUrl()));
         holder.pizzaName.setText(pizza.getPizzaName());
         holder.pizzaCost.setText(String.format("%,3d 원", pizza.getPizzaCost()));
     }
@@ -49,6 +55,7 @@ public class PizzaCardAdapter extends RecyclerView.Adapter<PizzaCardAdapter.View
         ImageView pizzaImg;
         TextView pizzaName;
         TextView pizzaCost;
+
         public ViewHolder(View itemView) {
             super(itemView);
             pizzaImg = itemView.findViewById(R.id.pizzaImg);

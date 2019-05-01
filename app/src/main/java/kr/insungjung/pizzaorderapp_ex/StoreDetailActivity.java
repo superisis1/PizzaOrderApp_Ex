@@ -56,7 +56,7 @@ public class StoreDetailActivity extends BaseActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 2);
         pizzaCards.setLayoutManager(layoutManager);
 
-        PizzaCardAdapter pizzaCardAdapter = new PizzaCardAdapter(pizza);
+        PizzaCardAdapter pizzaCardAdapter = new PizzaCardAdapter(pizza, mContext);
         pizzaCards.setAdapter(pizzaCardAdapter);
 
 
